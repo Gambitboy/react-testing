@@ -1,9 +1,5 @@
-# Official framework image. Look for the different tagged releases at:
-# https://hub.docker.com/r/library/node/tags/
 image: node:14.17.6-alpine3.13
 
-# This folder is cached between builds
-# https://docs.gitlab.com/ee/ci/yaml/index.html#cache
 cache:
   paths:
     - node_modules/
@@ -12,12 +8,10 @@ cache:
 stages:
     - test
  
-run-unit-test:
+run-unit-tests:
     stage: test
     script:
         - yarn install --cache-folder .yarn
         - yarn test
-        # - npm install # Install all dependencies
-        # - npm test # Test 
     only:
         - merge_requests
