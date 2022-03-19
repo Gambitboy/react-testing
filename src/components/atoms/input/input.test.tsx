@@ -14,7 +14,15 @@ describe('Atom - Input', () => {
     const input = screen.getByLabelText('Username');
 
     expect(input).toBeInTheDocument();
-    fireEvent.input(input, { target: { value: 'keaton' } });
-    expect(input).toHaveValue('keaton');
+    fireEvent.input(input, { target: { value: 'value' } });
+    expect(input).toHaveValue('value');
+  });
+
+  test('input has predefined value', () => {
+    render(<Input name="username" label="Username" value="value" />);
+    const input = screen.getByLabelText('Username');
+
+    expect(input).toBeInTheDocument();
+    expect(input).toHaveValue('value');
   });
 });
