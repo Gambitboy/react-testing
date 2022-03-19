@@ -1,4 +1,4 @@
-import React, { CSSProperties, ReactNode, useEffect } from 'react';
+import React, { ReactNode } from 'react';
 
 import './button.css';
 
@@ -7,42 +7,11 @@ type ButtonProps = {
   onClick?: () => void;
   isDisabled?: boolean;
   isLoading?: boolean;
-  style?: CSSProperties;
-  className?: string;
-  type?: 'container' | 'outline' | 'text';
 };
 
-export const Button: React.FC<ButtonProps> = ({
-  children,
-  onClick,
-  isDisabled,
-  isLoading,
-  style,
-  className,
-  type = 'container',
-}) => {
-  let baseClass = '';
-
-  switch (type) {
-    case 'container':
-    default:
-      baseClass = 'button-container';
-      break;
-    case 'outline':
-      baseClass = 'button-outline';
-      break;
-    case 'text':
-      baseClass = 'button-text';
-      break;
-  }
-
+export const Button: React.FC<ButtonProps> = ({ children, onClick, isDisabled, isLoading }) => {
   return (
-    <button
-      onClick={onClick}
-      disabled={isDisabled}
-      style={style}
-      className={`${baseClass} ${className || ''}`}
-    >
+    <button onClick={onClick} disabled={isDisabled} className="outline">
       {isLoading ? 'Loading' : children}
     </button>
   );
