@@ -1,0 +1,15 @@
+.button-container {
+  border: 0;
+  background-color: lightskyblue;
+}
+
+.button-outline {
+  border: 1px black solid;
+  background-color: transparent;
+  padding: 0;
+}
+
+.button-text {
+ border: 0;
+  background-color: transparent;
+}

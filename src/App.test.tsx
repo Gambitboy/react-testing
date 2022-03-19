@@ -1,9 +1,18 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
+
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders app', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  expect(screen.getByText('Container')).toBeInTheDocument();
+  expect(screen.getByText('Container')).toHaveTextContent('Container');
+
+  expect(screen.getByText('Outline')).toBeInTheDocument();
+  expect(screen.getByText('Outline')).toHaveClass('button-outline');
+  expect(screen.getByText('Outline')).toHaveTextContent('Outline');
+
+  expect(screen.getByText('Text')).toBeInTheDocument();
+  expect(screen.getByText('Text')).toHaveClass('button-text');
+  expect(screen.getByText('Text')).toHaveTextContent('Text');
 });
